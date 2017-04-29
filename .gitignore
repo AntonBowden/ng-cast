@@ -6,3 +6,7 @@ node_modules/
 
 ## API keys ##
 src/config/youtube.js
+
+## floobits ##
+.floo
+.flooignore
