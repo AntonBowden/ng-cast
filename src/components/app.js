@@ -5,14 +5,22 @@ angular.module('video-player')
     scope: {},
     controllerAs: 'ctrl',
     bindToController: true,
-    controller: function() {
+    controller: function(youTube) {
       console.log('App:', this);
-      this.videos = window.exampleVideoData;
-      this.currentVideo = this.videos[0];
-      this.selectVideo = function(video) {
+      this.videos = [];
+      this.currentVideo = {};
+      this.selectVideo = (video) => {
         this.currentVideo = video;
       };
-      this.searchResults = function() {};
+      this.searchResults = (results) => {
+        this.videos = results;
+        this.currentVideo = this.videos[0];
+      };
+
+      youTube.search('nba', function(videos) {
+        this.videos = videos;
+        this.currentVideo = this.videos[0];
+      }.bind(this));
     },
     templateUrl: 'src/templates/app.html'
   };

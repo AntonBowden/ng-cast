@@ -9,7 +9,7 @@ angular.module('video-player')
     controller: function($scope) {
       console.log('Video list entry:', this);
       this.onClick = (video) => {
-        $scope.$parent.$parent.$parent.ctrl.currentVideo = video;
+        $scope.$parent.$parent.$parent.ctrl.selectVideo(video);
       };
     },
 
